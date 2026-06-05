@@ -7,10 +7,12 @@ import com.mercadona.product_catalog.enums.ProductCategory;
 import com.mercadona.product_catalog.exception.ProductAlreadyExistsException;
 import com.mercadona.product_catalog.exception.ProductNotFoundException;
 import com.mercadona.product_catalog.repository.ProductRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -26,6 +28,10 @@ class ProductServiceImplTest {
     @Mock
     private ProductRepository productRepository;
 
+    @BeforeEach
+    void cleanDatabase() {
+        productRepository.deleteAll();
+    }
     @InjectMocks
     private ProductServiceImpl productService;
 
