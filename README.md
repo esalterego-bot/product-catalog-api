@@ -1,3 +1,117 @@
+# Product Catalog API
+
+A RESTful API built with Spring Boot for managing products in a catalog.
+
+## Features
+
+* Create products
+* Retrieve all products
+* Retrieve a product by ID
+* Update products
+* Delete products
+* Input validation
+* Global exception handling
+* PostgreSQL database
+* Dockerized database
+* Swagger/OpenAPI documentation
+* Spring Security with Basic Authentication
+
+## Tech Stack
+
+* Java 21
+* Spring Boot
+* Spring Data JPA
+* Spring Security
+* PostgreSQL 17
+* Docker & Docker Compose
+* Swagger / OpenAPI
+* Maven
+* Lombok
+
+## Project Structure
+
+```text
+controller      REST endpoints
+service         Business logic
+repository      Data access layer
+entity          JPA entities
+dto             Request and response objects
+mapper          Entity/DTO mapping
+exception       Custom exceptions and handlers
+configuration   Application configuration
+```
+
+## Running the Application
+
+### 1. Start PostgreSQL
+
+```bash
+docker compose up -d
+```
+
+### 2. Run the application
+
+```bash
+./mvnw spring-boot:run
+```
+
+The application will start on:
+
+```text
+http://localhost:8080
+```
+
+## API Documentation
+
+Swagger UI:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+## Authentication
+
+The API uses HTTP Basic Authentication.
+
+Example:
+
+```bash
+curl -u javier:admin123 http://localhost:8080/products
+```
+
+## Available Endpoints
+
+| Method | Endpoint       | Description              |
+| ------ | -------------- | ------------------------ |
+| POST   | /products      | Create a product         |
+| GET    | /products      | Retrieve all products    |
+| GET    | /products/{id} | Retrieve a product by ID |
+| PUT    | /products/{id} | Update a product         |
+| DELETE | /products/{id} | Delete a product         |
+
+## Example Request
+
+```json
+{
+  "name": "Coca-Cola",
+  "category": "DRINKS",
+  "price": 10.00,
+  "stock": 10
+}
+```
+
+## Future Improvements
+
+* Unit and integration tests
+* JWT authentication
+* Pagination and filtering
+* CI/CD pipeline
+* Deployment to AWS
+
+```
+```
+
+## NOTES
 Interview answer
 
 If somebody asks:
@@ -82,7 +196,7 @@ Think step by step:
 
 This is actually a very interview-friendly answer:
 
-For a basic CRUD API I would reject duplicates with a 409 Conflict. 
+For a basic CRUD API I would reject duplicates with a 409 Conflict.
 Inventory updates should be handled through dedicated update operations rather than product creation.
 
 @RestControllerAdvice
