@@ -1,0 +1,106 @@
+{
+  "info": {
+    "name": "Product Catalog API",
+    "_postman_id": "f5b2f0f5-9d34-4d2c-bc40-123456789abc",
+    "description": "CRUD operations for Product Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "javier",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "admin123",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  "name": "Coca-Cola",\n  "category": "DRINKS",\n  "price": 10.00,\n  "stock": 10\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": ["{{baseUrl}}"],
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": ["{{baseUrl}}"],
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "Get Product By Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/products/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  "name": "Pepsi Max",\n  "category": "DRINKS",\n  "price": 12.50,\n  "stock": 25\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/products/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/products/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["products", "1"]
+        }
+      }
+    }
+  ]
+}
