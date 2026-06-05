@@ -1,4 +1,4 @@
-package com.mercadona.product_catalog_api;
+package com.mercadona.product_catalog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
