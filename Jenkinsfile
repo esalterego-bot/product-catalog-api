@@ -9,15 +9,9 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                sh './mvnw clean compile'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh './mvnw test'
+                sh './mvnw clean verify'
             }
         }
     }
@@ -29,6 +23,10 @@ pipeline {
 
         failure {
             echo 'Build failed'
+        }
+
+        always {
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }

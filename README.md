@@ -159,7 +159,11 @@ http://localhost:8080/swagger-ui/index.html
 
 ```
 ```
+## Run jenkins
+docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
 
+admin
+5c944b37c42744f28a031485bb0ca013
 
 ## NOTES
 Interview answer
